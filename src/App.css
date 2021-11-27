@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainPage{
+  display: flex;
+  background-color: white;
+  height: 100vh;
+  overflow: scroll;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.leaflet-container {
+  width: 60%;
+  height: 100vh;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  overflow: scroll;
+  width: 40%;
 }
 
-.App-link {
-  color: #61dafb;
+
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(196, 196, 196);
+  align-items: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form > div{
+  margin-bottom: 10px;
+}
+
+input{
+  padding:2px;
+  margin-left: 20px
+}
+
+form > button {
+ width: 80px;
+}
+
+.workout-container{
+  background-color: rgba(149, 104, 233, 0.822);
+  margin: 10px;
+  padding: 10px;
+ 
+}
+
+.workout-info{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.buttons{
+  display: flex;
+  padding: 10px;
+}
+
+button{
+  width: 50px;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease 0s;
+  
+}
+
+
+button:hover{
+  background-color:rgba(101, 255, 170, 0.822);
+  
 }
