@@ -3,15 +3,21 @@
   padding: 0;
 }
 .mainPage{
+  position: relative;
   display: flex;
-  background-color: white;
+  background-color: black;
   height: 100vh;
   overflow: scroll;
+  color: white;
+  font-family: 'Raleway',sans-serif;
+  font-size: 12px;
+ 
   
 }
 .leaflet-container {
   width: 60%;
   height: 100vh;
+  padding: 10px;
 }
 .sidebar{
   display: flex;
@@ -19,42 +25,86 @@
   height: 100vh;
   overflow: scroll;
   width: 40%;
+  animation: EASE_IN 0.5s ease-out;
+}
+.workout-title{
+  font-size: 14px;
+  color: #86C232;
+}
+.direction{
+  text-align: center;
+  margin: 5px;
+  color: #86C232;
+  font-size: 12px;
 }
 
-
-form{
+.workout-form {
   display: flex;
   flex-direction: column;
   padding: 10px;
   margin: 10px;
-  background-color: rgb(196, 196, 196);
   align-items: left;
+  animation: EASE_IN 0.5s  ease-out;
 }
 
-form > div{
+.workout-form > div {
   margin-bottom: 10px;
 }
 
 input{
-  padding:2px;
-  margin-left: 20px
+  appearance: none;
+  padding:5px;
+  margin-left: 20px;
+  outline: none;
+  border: none;
 }
 
-form > button {
+input:focus::placeholder {
+  color: transparent;
+}
+
+input::placeholder{
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.workout-form > button {
  width: 80px;
+ color: #ededed;
 }
 
-.workout-container{
-  background-color: rgba(149, 104, 233, 0.822);
+.form--label{
+  margin-right: 40px;
+}
+#form-cadence{
+  margin-left: 17px;
+}
+
+.workout-container-running{
   margin: 10px;
   padding: 10px;
- 
+  border-radius: 4px;
+  border-left: 2px solid orange;
 }
 
+.workout-container-cycling {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 2px solid skyblue;
+}
+
+
 .workout-info{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+ display: flex;
+ justify-content: space-between;
+ flex-direction: row;
+ margin-top: 5px;
 }
 
 .buttons{
@@ -63,17 +113,182 @@ form > button {
 }
 
 button{
+  font-size: 10px;
   width: 50px;
   padding: 5px;
   margin-right: 10px;
-  border-radius: 5px;
   border: none;
   transition: all 0.3s ease 0s;
+  background-color: #86C232;
+  color: white;
   
 }
 
 
 button:hover{
-  background-color:rgba(101, 255, 170, 0.822);
+  background-color:#4CD964;
+  color: white;
   
+}
+
+.icon{
+  font-size: 50px;
+  text-align: center;
+  margin-top:  5px;
+}
+
+
+
+.toggle{
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+.toggle-theme{
+  background-color: none;
+}
+
+.error-msg{
+  color: red;
+  font-weight: bold;
+  margin: 5px 0px 5px 0px;
+  font-size: 15px;
+}
+
+
+.loading {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+
+
+}
+
+.loading div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #86C232;
+  animation: loading 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.loading div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.loading div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.loading div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+.loading-map{
+  font-size: 180px;
+  margin: auto;
+}
+
+
+.switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 62px;
+  height: 32px;
+  margin-left: 0px;
+  margin: 5px 5px 5px 5px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #4CD964;
+  transition: background-color ease 0.3s;
+}
+
+.switch:before {
+  content: "on off";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  font: 10px/28px Helvetica;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-indent: -22px;
+  word-spacing: 37px;
+  color: #fff;
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+.switch:checked {
+  background-color: #707070;
+  ;
+}
+
+.switch:checked:before {
+  left: 32px;
+}
+
+
+@keyframes loading {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+@keyframes EASE_IN{
+  0% {
+   
+    opacity: 0;
+  }
+
+  100% {
+
+    opacity: 1;
+  }
+
+}
+
+
+
+@media (max-width: 800px) {
+  .mainPage{
+    flex-direction: column;
+  }
+  .sidebar{
+    width: 100%;
+ 
+  }
+  .leaflet-container {
+    width: 100%;
+  }
+  .icon{
+    font-size: 40px;
+  }
+
+
 }

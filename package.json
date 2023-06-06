@@ -3,16 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^2.8.4",
+    "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "and": "0.0.3",
+    "icons": "^1.0.0",
     "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.21.0",
+    "react-icons": "^4.3.1",
     "react-leaflet": "^3.2.2",
+    "react-redux": "^8.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "styled-components": "^5.3.3",
+    "web-vitals": "^1.1.2",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
